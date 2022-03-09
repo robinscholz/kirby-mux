@@ -1,0 +1,11 @@
+title:
+  de: Mux video
+  en: Mux video
+
+accept:
+  mime: video/*
+  type: video
+
+fields:
+  mux:
+    type: hidden

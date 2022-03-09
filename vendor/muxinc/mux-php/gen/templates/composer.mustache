@@ -1,0 +1,41 @@
+{
+    "name": "{{gitUserId}}/{{gitRepoId}}",
+    {{#artifactVersion}}
+    "version": "{{artifactVersion}}",
+    {{/artifactVersion}}
+    "description": "{{{appDescription}}}",
+    "keywords": [
+        "php",
+        "sdk",
+        "rest",
+        "api",
+        "video",
+        "streaming"
+    ],
+    "homepage": "https://mux.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mux SDK Team",
+            "homepage": "https://mux.com",
+            "email": "sdks@mux.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^2.12"
+    },
+    "autoload": {
+        "psr-4": { "{{escapedInvokerPackage}}\\" : "{{srcBasePath}}/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "{{escapedInvokerPackage}}\\Test\\" : "{{testBasePath}}/" }
+    }
+}

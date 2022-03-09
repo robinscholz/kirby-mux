@@ -1,0 +1,40 @@
+{
+  "name": "robinscholz/kirby-mux",
+  "description": "Upload videos directly to mux",
+  "type": "kirby-plugin",
+  "keywords": [
+    "kirby",
+    "mux",
+    "video",
+    "stream"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/robinscholz/kirby-mux#readme",
+  "authors": [
+    {
+      "name": "Robin Scholz",
+      "email": "dev@studioscholz.info",
+      "homepage": "https://studioscholz.info"
+    }
+  ],
+  "require": {
+    "php": ">=7.4.0",
+    "getkirby/composer-installer": "^1.2",
+    "muxinc/mux-php": "^3.3",
+    "vlucas/phpdotenv": "^5.4"
+  },
+  "require-dev": {
+    "getkirby/cms": "^3.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "KirbyMux\\": "classes/KirbyMux/"
+    }
+  },
+  "scripts": {
+    "dist": "composer install --no-dev --optimize-autoloader"
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}

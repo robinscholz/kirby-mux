@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "npx -y kirbyup src/index.js --watch",
+    "build": "npx -y kirbyup src/index.js"
+  },
+  "dependencies": {
+    "hls.js": "^1.1.4"
+  }
+}

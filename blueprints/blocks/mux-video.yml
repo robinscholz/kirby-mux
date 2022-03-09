@@ -1,0 +1,16 @@
+name: field.blocks.video.name
+icon: video
+fields:
+  video:
+    label: field.blocks.video.name
+    type: files
+    multiple: false
+    query: page.files.template('mux-video')
+    image:
+      back: black
+    uploads:
+      template: mux-video
+  caption:
+    label: field.blocks.video.caption
+    type: writer
+    inline: true
