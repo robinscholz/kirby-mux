@@ -44,6 +44,10 @@ Set this to `true` for local development. Instead of the actual video, the plugi
 
 > **NOTE:** This plugin includes a .env.example file as well.
 
+## Caveats
+
+The plugin does not include any frontend facing code or snippets. In order to stream the videos from MUX you need to implement your own custom video player. [HLS.js](https://github.com/video-dev/hls.js/) is a good option for example.
+
 ## Plugin Development
 
 [Kirbyup](https://github.com/johannschopplich/kirbyup) is used for the development and build setup.
