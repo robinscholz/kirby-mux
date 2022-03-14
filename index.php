@@ -28,13 +28,13 @@ Kirby::plugin('robinscholz/kirby-mux', [
                 throw new Exception($e->getMessage());
             }
         },
-        'file.delete:after' => function (Kirby\Cms\File $file) {
+        'file.delete:before' => function (Kirby\Cms\File $file) {
             if ($file->type() !== 'video') { return; }
 
             // Authentication setup
             $assetsApi = KirbyMux\Auth::assetsApi();
 
-            // Get Mux Id
+            // Get mux Id
             $muxId = json_decode($file->mux())->id;
 
             // Delete Asset
@@ -44,32 +44,38 @@ Kirby::plugin('robinscholz/kirby-mux', [
                 throw new Exception($e->getMessage());
             }
         },
-        'file.replace:after' => function (Kirby\Cms\File $newFile, Kirby\Cms\File $oldFile) {
+        'file.replace:before' => function (Kirby\Cms\File $newFile, Kirby\Cms\File $oldFile) {
             if ($newFile->type() !== 'video') { return; }
 
-             // Authentication setup
-             $assetsApi = KirbyMux\Auth::assetsApi();
+            // Authentication setup
+            $assetsApi = KirbyMux\Auth::assetsApi();
 
-            // Upload new file to mux
-             $result = KirbyMux\Methods::upload($assetsApi, $newFile->url());
-
-             // Save playback Id
-             try {
-                 $newFile = $newFile->update([
-                   'mux' => $result->getData()
-                 ]);
-             } catch(Exception $e) {
-                throw new Exception($e->getMessage());
-             }
-
-             // Get old mux Id
-             $muxId = json_decode($oldFile->mux())->id;
+            // Get old mux Id
+            $muxId = json_decode($oldFile->mux())->id;
 
             // Delete old asset
             try {
                 $assetsApi->deleteAsset($muxId);
             } catch (Exception $e) {
                 throw new Exception($e->getMessage());
+            }
+        },
+        'file.replace:after' => function (Kirby\Cms\File $newFile, Kirby\Cms\File $oldFile) {
+            if ($newFile->type() !== 'video') { return; }
+
+            // Authentication setup
+            $assetsApi = KirbyMux\Auth::assetsApi();
+
+            // Upload new file to mux
+            $result = KirbyMux\Methods::upload($assetsApi, $newFile->url());
+
+            // Save playback Id
+            try {
+                $newFile = $newFile->update([
+                'mux' => $result->getData()
+                ]);
+            } catch(Exception $e) {
+            throw new Exception($e->getMessage());
             }
         }
     ]
