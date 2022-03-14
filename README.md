@@ -6,7 +6,7 @@ A [Kirby](https://getkirby.com) plugin to upload video files to [MUX](https://mu
 
 ### Download
 
-Download and copy this repository to `/site/plugins/{{ plugin-name }}`.
+Download and copy this repository to `/site/plugins/kirby-mux`.
 
 ### Git submodule
 
