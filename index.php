@@ -44,14 +44,14 @@ Kirby::plugin('robinscholz/kirby-mux', [
                 throw new Exception($e->getMessage());
             }
         },
-        'file.replace:before' => function (Kirby\Cms\File $newFile, Kirby\Cms\File $oldFile) {
-            if ($newFile->type() !== 'video') { return; }
+        'file.replace:before' => function (Kirby\Cms\File $file, Kirby\Filesystem\File $upload) {
+            if ($upload->type() !== 'video') { return; }
 
             // Authentication setup
             $assetsApi = KirbyMux\Auth::assetsApi();
 
             // Get old mux Id
-            $muxId = json_decode($oldFile->mux())->id;
+            $muxId = json_decode($file->mux())->id;
 
             // Delete old asset
             try {
