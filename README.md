@@ -1,6 +1,6 @@
-# 📼 Kirby MUX
+# 📼 Kirby Mux
 
-A [Kirby](https://getkirby.com) plugin to upload video files to [MUX](https://mux.com).
+A [Kirby](https://getkirby.com) plugin to upload video files to [Mux](https://mux.com).
 
 ## Installation
 
@@ -40,13 +40,13 @@ Save the associated `Token Secret` here.
 
 ### MUX_DEV
 
-Set this to `true` for local development. Instead of the actual video, the plugin will upload a test video to MUX. This is neccessary, since videos need to be publicly hosted for MUX to be able to import them.
+Set this to `true` for local development. Instead of the actual video, the plugin will upload a test video to Mux. This is neccessary, since videos need to be publicly hosted for Mux to be able to import them.
 
 > **NOTE:** This plugin includes a .env.example file as well.
 
 ## Caveats
 
-The plugin does not include any frontend facing code or snippets. In order to stream the videos from MUX you need to implement your own custom video player. [HLS.js](https://github.com/video-dev/hls.js/) is a good option for example.
+The plugin does not include any frontend facing code or snippets. In order to stream the videos from Mux you need to implement your own custom video player. [HLS.js](https://github.com/video-dev/hls.js/) is a good option for example.
 
 ## Plugin Development
 
