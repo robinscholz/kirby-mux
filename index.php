@@ -5,6 +5,16 @@
 Dotenv\Dotenv::createImmutable(kirby()->root('base'))->load(); // TODO: Add configurable path for .env
 
 Kirby::plugin('robinscholz/kirby-mux', [
+    'translations' => [
+        'en' => [
+            'field.blocks.mux-video.thumbnail' => 'Generate thumbnail from frame',
+            'field.blocks.mux-video.thumbnail.help' => 'In seconds',
+        ],
+        'de' => [
+            'field.blocks.mux-video.thumbnail' => 'Thumbnail aus Frame generieren',
+            'field.blocks.mux-video.thumbnail.help' => 'In Sekunden',
+        ],
+    ],
     'blueprints' => [
         'files/mux-video' => __DIR__ . '/blueprints/files/mux-video.yml',
         'blocks/mux-video' => __DIR__ . '/blueprints/blocks/mux-video.yml'

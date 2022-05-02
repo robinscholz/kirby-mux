@@ -1,6 +1,7 @@
 <template>
   <k-block-figure
     :is-empty="!video.url"
+    :caption="content.caption"
     empty-icon="image"
     empty-text="No file selected yet …"
     @open="open"
@@ -34,13 +35,16 @@ export default {
       if (!this.id) return "";
       return `https://stream.mux.com/${this.id}.m3u8`;
     },
+    time() {
+      return this.content.thumbnail || 0;
+    },
     thumb() {
       if (!this.id) return "";
-      const url = `https://image.mux.com/${this.id}/thumbnail.jpg`;
+      const url = `https://image.mux.com/${this.id}/thumbnail.jpg?time=${this.time}`;
       const srcset = [300, 600, 900, 1200, 1600];
       return {
         src: url,
-        srcset: srcset.map((w) => `${url}?width=${w} ${w}w`).join(", "),
+        srcset: srcset.map((w) => `${url}&width=${w} ${w}w`).join(", "),
       };
     },
   },
